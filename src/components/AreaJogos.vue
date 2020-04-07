@@ -1,7 +1,7 @@
 <template>
   <section class="background">
           <AdicionarJogo/>
-      <h1>Jogos Disponiveis</h1>
+      <h1 id="h1teste">Jogos Disponiveis</h1>
         <!-- //////////////////////////////Botao//////////////////////////////// -->
       <b-row class="botaoFiltrar">
         <div>
@@ -9,7 +9,8 @@
             <b-dropdown-item-button >RPG</b-dropdown-item-button>
             <b-dropdown-item-button >Ação</b-dropdown-item-button>
             <b-dropdown-item-button >FPS</b-dropdown-item-button>
-            <b-dropdown-item-button>Estrategia</b-dropdown-item-button>
+            <b-dropdown-item-button>Corrida</b-dropdown-item-button>
+            <b-dropdown-item-button>Terror</b-dropdown-item-button>
           </b-dropdown>
         </div>
       </b-row>
@@ -18,13 +19,18 @@
           <div v-for ="jogo in allJogos" :key="jogo.id" class="Cartas">
         
           <b-card
+            :style="jogo.dadosjogo.nota>89?'border:3px solid gold;'
+            :jogo.dadosjogo.nota<80?' border:2px solid red;'
+            :'border:2px solid black;'"
+
+      
             :title="jogo.name"
             :id="jogo.id"
             :img-src="jogo.image.url"
             :img-alt="jogo.name"
             img-top
             tag="article"
-            style="max-width: 13rem; overflow:visible; border: 2px solid black;max-height: 28rem;"
+            style="max-width: 13rem; border: 2px solid black;max-height: 28rem;"
             class="md-2"
           >
             <div class="botaofix">
@@ -48,6 +54,7 @@
                   Sumario: {{jogo.dadosjogo.sumario}} <br>
                   Data de lançamento: {{jogo.dadosjogo.data}}<br>
                   Categoria: {{jogo.dadosjogo.categoria}}<br>
+                  Metacritic: {{jogo.dadosjogo.nota}}<br>
                 </b-card-text>
               </b-card>
               </div>
@@ -71,20 +78,13 @@ export default {
   components: {
     AdicionarJogo,
   },
-  props: { },
-  
-  computed: mapGetters(["allJogos"]),
-  
-  data: function() {
-   return {
-     modalShow: false,
-   }
- },
+  computed:{
+    ...mapGetters(["allJogos"]),
+  },
  
   methods: { 
     ...mapActions(["deleteJogo"]),
 
-    
     mostrarCarrinho() {
       this.$router.push({name : "form"})
     },
@@ -110,6 +110,7 @@ h1 {
   padding: 20px;
   
 }
+
 h4{
   color: whitesmoke;
 }
@@ -166,9 +167,6 @@ button{
 }
 p.card-text{
   color: whitesmoke;
-}
-header{
-  background-color:#202020 ;
 }
 
 

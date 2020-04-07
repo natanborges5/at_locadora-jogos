@@ -75,10 +75,12 @@ a{
   padding: 12px;
   text-decoration: none;
   font-size: 18px;
-  border-radius: 4px;
+}
+.navbar-dark .navbar-nav .nav-link{
+  color: whitesmoke;
 }
 #nav-collapse{
-  font-family: Beckman-free;
+  font-family: berserker;
   justify-content: space-around;
 }
 #Logo-titulo{

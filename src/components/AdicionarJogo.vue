@@ -1,10 +1,7 @@
 <template>
   <section class="background">
   <div>
-    <div id="addd">
-      <br>
       <h1>Você pode adicionar o seu proprio jogo na biblioteca de jogos!!<a v-on:click='mostrarArq'><h2 class='textoAdd'> Clique aqui para adicionar o seu jogo </h2> </a></h1>
-    </div>
 
     <b-form @submit.prevent="onSubmit" v-if="mostrarJogos"  id="form">
       <div class="formatarinput">
@@ -13,9 +10,9 @@
         <input type="text" id="name" name="name" v-model="addGame.name" required />
       </div>
       <div class="formatarinput2">
-        <label for="dadosjogo">Sumario do jogo: </label>
+        <label for="dadosjogos">Sumario do jogo: </label>
           
-        <input type="text" id="dadosjogo" name="dadosjogo" v-model="addGame.dadosjogo.sumario" required />
+        <input type="text" id="dadosjogos" name="dadosjogos" v-model="addGame.dadosjogo.sumario" required />
       </div>
       <div class="formatarinput3">
         <label for="categoria">Categoria do jogo: </label>
@@ -27,7 +24,12 @@
         
         <input type="number" min="0"  id="data" name="data" v-model="addGame.dadosjogo.data" required/>
       </div>
-      <div class="formatarinput8">
+      <div class="formatarinput5">
+        <label for="nota">Nota: </label>
+        
+        <input type="number" min="0"  id="nota" name="nota" v-model="addGame.dadosjogo.nota" required/>
+      </div>
+      <div class="formatarinput6">
         <label for="img_url">Imagem do jogo: </label>
         
         <input type="url"  id="img_url" name="img_url" v-model="addGame.image.url" required/>
@@ -110,13 +112,7 @@ h1 {
 	opacity: 1;
   background-attachment: fixed;
 }
-.areajogos{
-  display: flex;
-  margin-left:5px;
-  flex-wrap: wrap;
-  padding: 10px;
-  margin-top: 117px;
-}
+
 #botaoAdd{
   padding: 5px 10px;
   font-size: 19px;
@@ -142,23 +138,27 @@ input{
   border-radius: 8px;
   margin-left: 5px;
 }
+.formatarinput{
+  margin-left: 46px;
+}
+.formatarinput2{
+  margin-left: 28px;
+}
+.formatarinput3{
+  margin-left: 16px;
+}
+.formatarinput4{
+  margin-right: 0px;
+}
+.formatarinput5{
+  margin-left: 128px;
+}
+.formatarinput6{
+  margin-left: 30px;
+}
 label{
   font-size: 18px;
   font-weight: bold;
-}
-
-.botaoFiltrar{
-  margin-left: 8px;
-}
-.Cartas{
-  display: flex;
-  margin:5px;
-  text-align:center;
-  height:410px;
-}
-
-#info_card{
-  align-content: center;
 }
 
 
