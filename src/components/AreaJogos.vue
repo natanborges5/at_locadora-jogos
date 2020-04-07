@@ -1,6 +1,7 @@
 <template>
   <section class="background">
-            <h1>Jogos Disponiveis</h1>
+          <AdicionarJogo/>
+      <h1>Jogos Disponiveis</h1>
         <!-- //////////////////////////////Botao//////////////////////////////// -->
       <b-row class="botaoFiltrar">
         <div>
@@ -12,76 +13,76 @@
           </b-dropdown>
         </div>
       </b-row>
-    <div class="areajogos">
-                <!-- //////////////////////Jogos////////////////////////// -->
-        <div v-for ="jogo in allJogos" :key="jogo.id" class="Cartas">
-      
-        <b-card
-          :title="jogo.name"
-          :id="jogo.id"
-          :img-src="jogo.image.url"
-          :img-alt="jogo.name"
-          img-top
-          tag="article"
-          style="max-width: 13rem; border: 2px solid black;max-height: 26rem"
-          class="md-2"
-        >
-          <div class="botaofix">
-            <b-button  @click="$bvModal.show(jogo.id)" id='bot_detalhes'>Detalhes</b-button>
-            <b-button  @click="mostrarCarrinho" id='bot_detalhes'>Comprar</b-button>
-          </div>
-
-          <b-modal  :key="jogo.id" :id="jogo.id" :title='jogo.name' centered ok-only ok-title="Fechar" ok-variant="danger " auto-focus-button="ok">
-
-          <div id='info_card'>        
-            <b-card
-              :img-src ="jogo.image.url"
-              :img-alt="jogo.name"
-              img-top
-              tag="article"
-              style="max-width: 21rem; margin-left: 55px; "
-              class="md-2"
-            >
-              <b-card-text>
-                Sumario: {{jogo.dadosjogo.sumario}} <br>
-                Categoria: {{jogo.dadosjogo.categoria}}<br>
-                Data de lançamento: {{jogo.dadosjogo.data}}<br>
-              </b-card-text>
-            </b-card>
-            </div>
-          </b-modal>
-          
-          
-        </b-card>  
+      <div class="areajogos">
+                  <!-- //////////////////////Jogos////////////////////////// -->
+          <div v-for ="jogo in allJogos" :key="jogo.id" class="Cartas">
         
+          <b-card
+            :title="jogo.name"
+            :id="jogo.id"
+            :img-src="jogo.image.url"
+            :img-alt="jogo.name"
+            img-top
+            tag="article"
+            style="max-width: 13rem; overflow:visible; border: 2px solid black;max-height: 28rem;"
+            class="md-2"
+          >
+            <div class="botaofix">
+              <b-button  @click="$bvModal.show(jogo.id)" id='botaojogos'>Detalhes</b-button>
+              <b-button  @click="mostrarCarrinho" id='botaojogos'>Comprar</b-button>
+            </div>
+            <b-button class="botaodelete" @click='deleteJogo(jogo.id)'>deletar</b-button>
+
+            <b-modal  :key="jogo.id" :id="jogo.id" :title='jogo.name' centered ok-only ok-title="Fechar" ok-variant="danger " auto-focus-button="ok">
+
+            <div id='info_card'>        
+              <b-card
+                :img-src ="jogo.image.url"
+                :img-alt="jogo.name"
+                img-top
+                tag="article"
+                style="max-width: 21rem; margin-left: 55px; "
+                class="md-2"
+              >
+                <b-card-text>
+                  Sumario: {{jogo.dadosjogo.sumario}} <br>
+                  Data de lançamento: {{jogo.dadosjogo.data}}<br>
+                  Categoria: {{jogo.dadosjogo.categoria}}<br>
+                </b-card-text>
+              </b-card>
+              </div>
+            </b-modal>
+            
+            
+          </b-card>  
+          
+        </div>
       </div>
-    </div>
   </section>
 </template>
 
 <script>
+import AdicionarJogo from '../components/AdicionarJogo'
 import { mapGetters, mapActions } from "vuex";
-import AddJogo from './AddJogo.vue'
+
 
 export default {
   name: 'AreaJogos',
+  components: {
+    AdicionarJogo,
+  },
   props: { },
-  components:{AddJogo},
   
   computed: mapGetters(["allJogos"]),
-  created() {
-    this.fetchJogos();
-  },
   
   data: function() {
    return {
      modalShow: false,
-     carrinho: [],
    }
  },
  
   methods: { 
-    ...mapActions(["fetchJogos" , "deleteJogo"]),
+    ...mapActions(["deleteJogo"]),
 
     
     mostrarCarrinho() {
@@ -109,9 +110,12 @@ h1 {
   padding: 20px;
   
 }
+h4{
+  color: whitesmoke;
+}
 .background{
   margin-top: 117px;
-  height: 100%;
+  height: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -133,10 +137,15 @@ h1 {
 }
 .botaofix{
   display: inline-flex;
-  align-items: center;
+  justify-content: space-between;
 }
-
-
+.botaodelete{
+  padding: 1px 5px;
+  margin-top: 5px;
+}
+#botaojogos{
+  border: 1px solid #202020;
+}
 .botaoFiltrar{
   margin-left: 8px;
 }
@@ -146,9 +155,20 @@ h1 {
   text-align:center;
   height:410px;
 }
-
+.card-body{
+  background-color: #202020;
+}
+button{
+  border: 10px black;
+}
 #info_card{
   align-content: center;
+}
+p.card-text{
+  color: whitesmoke;
+}
+header{
+  background-color:#202020 ;
 }
 
 

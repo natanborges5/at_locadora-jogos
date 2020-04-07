@@ -84,24 +84,13 @@
           ></b-form-input>
         </b-form-group>
 
-        
-
-
-
-
-
-
-
-
-
-
       <b-form-group id="input-group-4">
         <b-form-checkbox-group v-model="form.checked" id="checkboxes-4">
           <b-form-checkbox value="me">Lembrar dos meus dados na proxima compra</b-form-checkbox>
         </b-form-checkbox-group>
       </b-form-group>
 
-      <b-button type="submit" variant="primary" v-on:click="myFunction">Comprar</b-button>
+      <b-button type="submit" variant="primary">Comprar</b-button>
       <b-button type="reset" variant="danger">Reset</b-button>
     </b-form>
   </div>

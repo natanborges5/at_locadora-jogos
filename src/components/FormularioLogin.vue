@@ -35,7 +35,7 @@
         </b-form-checkbox-group>
       </b-form-group>
 
-      <b-button type="submit" variant="primary" v-on:click="myFunction">Submit</b-button>
+      <b-button type="submit" variant="primary">Submit</b-button>
       <b-button type="reset" variant="danger">Reset</b-button>
     </b-form>
   </div>
@@ -83,7 +83,7 @@ h1 {
   font-size:50px;
   margin-top:100px;
   color:black;
-  font-family: "theboldfont";
+  font-family: "berserker";
   text-align:center;
 }
 .background{
@@ -107,6 +107,7 @@ h1 {
 #FormLogin{
     color: white;
   text-align: center;
+  margin-top: 100px;
 }
 
 #form{

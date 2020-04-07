@@ -95,7 +95,7 @@ h1 {
   font-size:50px;
   margin-top:100px;
   color:black;
-  font-family: "theboldfont";
+  font-family: "berserker";
   text-align:center;
 }
 .background{

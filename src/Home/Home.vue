@@ -2,7 +2,6 @@
    <div id='Home'>
       <Header/>
       <AreaJogos/>
-      <AdicionarJogo/>
     </div>
 
 </template>
@@ -10,7 +9,6 @@
 <script>
 import Header from '../components/Header'
 import AreaJogos from '../components/AreaJogos'
-import AdicionarJogo from '../components/AdicionarJogo'
 
 
 export default {
@@ -18,7 +16,6 @@ export default {
   components: {
     Header,
     AreaJogos,
-    AdicionarJogo
     
   }
 }
