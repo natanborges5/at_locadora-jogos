@@ -19,7 +19,7 @@
           <div v-for ="jogo in allJogos" :key="jogo.id" class="Cartas">
         
           <b-card
-            :style="jogo.dadosjogo.nota>89?'border:3px solid gold;'
+            :style="jogo.dadosjogo.nota>89?'border:2px solid whitesmoke;'
             :jogo.dadosjogo.nota<80?' border:2px solid red;'
             :'border:2px solid black;'"
 
