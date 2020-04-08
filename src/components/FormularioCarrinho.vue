@@ -102,9 +102,12 @@
     data() {
       return {
         form: {
-          email: '',
-          name: '',
-          senha: '',
+          nome: '',
+          endereço: '',
+          cidade: '',
+          cartao: '',
+          cartaodata: '',
+          cvv: '',
           checked: []
         },
         show: true
@@ -119,9 +122,12 @@
       onReset(evt) {
         evt.preventDefault()
         // Reset our form values
-        this.form.email = ''
-        this.form.name = ''
-        this.form.senha = ''
+        this.form.nome = ''
+        this.form.endereço = ''
+        this.form.cidade = ''
+        this.form.cartao = ''
+        this.form.cartaodata = ''
+        this.form.cvv = ''
         this.form.checked = []
         // Trick to reset/clear native browser form validation state
         this.show = false

@@ -57,7 +57,8 @@ export default {
         dadosjogo:{
           sumario:"",
           data:"",
-          Categoria:"",
+          categoria:"",
+          nota:""
         },
         image:{
          url:"",

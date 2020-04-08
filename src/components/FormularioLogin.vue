@@ -65,7 +65,6 @@
         evt.preventDefault()
         // Reset our form values
         this.form.email = ''
-        this.form.name = ''
         this.form.senha = ''
         this.form.checked = []
         // Trick to reset/clear native browser form validation state
